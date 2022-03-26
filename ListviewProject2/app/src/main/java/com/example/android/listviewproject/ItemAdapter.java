@@ -46,6 +46,20 @@ class ItemAdapter extends ArrayAdapter<Items> {
         TextView price = view.findViewById(R.id.item1_price);
         price.setText(currentItem.getItemPrice() + "");
 
+        //
+        ImageView RemoveImage = view.findViewById(R.id.itemdelete);
+        RemoveImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                items.remove(position);
+                notifyDataSetChanged();
+            }
+        });
+
+
+
+
+
      
         return view;
     }

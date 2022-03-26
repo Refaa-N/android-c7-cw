@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private ArrayList<Items> shopItems = new ArrayList<>();
+    //private Object DetailsActivity1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
         ItemAdapter itemAdapter = new ItemAdapter(this, 0, shopItems);
         listView.setAdapter(itemAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Items currentItems = shopItems.get(i);//
+
+                Intent in = new Intent(MainActivity.this,DetailsActivity1.class);
+                in.putExtra("coffee" , currentItems);
+                startActivity(in);
+
+            }
+        });
 
 
 
